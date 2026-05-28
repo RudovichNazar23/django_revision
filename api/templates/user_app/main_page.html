@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    {{ request.user.usrename }}
+{% endblock %}
+
+{% block body %}
+    <p class="m-5 bg-light">Welcome {{ request.user.username }}</p>
+    <form action="{% url 'logout' %}" method="POST">{% csrf_token %}
+        <div class="m-2">
+            <button class="btn btn-danger">Logout</button>
+        </div>
+    </form>
+{% endblock %}
+
